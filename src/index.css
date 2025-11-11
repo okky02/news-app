@@ -2,31 +2,14 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-    --bg-light: #F4F7FA;
-    --bg-dark: #0F172A;
-
-    --text-light: #1E293B;
-    --text-dark: #E2E8F0;
-
-    --card-light: #FFFFFF;
-    --card-dark: #1E293B;
-
-    --border-light: #CBD5E1;
-    --border-dark: #334155;
-
-
-    --hover-light: #E9EEF5;
-    --hover-dark: #1A2536;
-}
-
 .dark {
     color-scheme: dark;
 }
 
-::-webkit-scrollbar {
-    height: 6px;
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
-  ::-webkit-scrollbar-thumb {
-    background: transparent;
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
   }
