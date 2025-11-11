@@ -2,21 +2,18 @@ import axios from "axios";
 
 export const getNews = async (category = "", query = "") => {
   try {
-    let endpoint = "https://berita-indo-api-next.vercel.app/api/cnn-news";
+    let targetUrl = "https://berita-indo-api-next.vercel.app/api/cnn-news";
+    if (category && category !== "all") targetUrl += `/${category}`;
 
-    if (category && category !== "all") {
-      endpoint += `/${category}`;
-    }
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+    const { data } = await axios.get(proxyUrl);
 
-    const response = await axios.get(endpoint);
-    let news = response.data.data;
+    const parsed = JSON.parse(data.contents);
+    let news = parsed.data;
 
-    // Filter by search keyword (client-side)
     if (query) {
       const q = query.toLowerCase();
-      news = news.filter((item) =>
-        item.title.toLowerCase().includes(q)
-      );
+      news = news.filter((item) => item.title.toLowerCase().includes(q));
     }
 
     return news;
