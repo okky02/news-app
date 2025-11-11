@@ -2,6 +2,8 @@ import DarkModeToggle from "./home/DarkModeToggle";
 import SearchNews from "./home/SearchNews";
 
 export default function Navbar({ search, setSearch }) {
+  const isDetailPage = location.pathname.includes("/detail");
+
   return (
     <nav className="sticky top-0 z-50 py-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/60 dark:border-gray-700/60 shadow-sm mb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,7 +40,9 @@ export default function Navbar({ search, setSearch }) {
           <div className="flex items-center gap-3 sm:gap-4">
             {/* Search Component */}
             <div className="relative">
+            {!isDetailPage && (
               <SearchNews search={search} setSearch={setSearch} />
+            )}
             </div>
 
             {/* Dark Mode Toggle */}
