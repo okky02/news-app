@@ -3,13 +3,13 @@ import axios from "axios";
 const api = axios.create({
   baseURL:
     import.meta.env.MODE === "development"
-      ? "/api" // pakai proxy Vite saat dev
-      : "https://berita-indo-api-next.vercel.app", // pakai URL asli saat production
+      ? "/api" 
+      : "https://berita-indo-api-next.vercel.app/api", // ← tambahin /api di sini
 });
 
 export const getNews = async (category = "", query = "") => {
   try {
-    let endpoint = `/cnn-news`;
+    let endpoint = `/cnn-news`; // ← tanpa /api di endpoint
     const params = [];
 
     if (category) params.push(category);
@@ -26,4 +26,3 @@ export const getNews = async (category = "", query = "") => {
     throw error;
   }
 };
-
