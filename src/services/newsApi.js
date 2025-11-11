@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL:
     import.meta.env.MODE === "development"
       ? "/api" 
-      : "https://berita-indo-api-next.vercel.app/api", // ← tambahin /api di sini
+      : "https://berita-indo-api.vercel.app/api"
 });
 
 export const getNews = async (category = "", query = "") => {
