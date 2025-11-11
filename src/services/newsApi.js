@@ -1,26 +1,29 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL:
-    import.meta.env.MODE === "development"
-      ? "/api" 
-      : "https://berita-indo-api.vercel.app/api"
+  baseURL: "/api",
 });
 
 export const getNews = async (category = "", query = "") => {
   try {
-    let endpoint = `/cnn-news`; // ← tanpa /api di endpoint
-    const params = [];
+    let endpoint = "/cnn-news";
 
-    if (category) params.push(category);
-    if (query) params.push(`search?q=${encodeURIComponent(query)}`);
-
-    if (params.length > 0) {
-      endpoint += `/${params.join("/")}`;
+    if (category && category !== "all") {
+      endpoint += `/${category}`;
     }
 
     const response = await api.get(endpoint);
-    return response.data.data;
+    let news = response.data.data;
+
+    // Filter by search keyword (client-side)
+    if (query) {
+      const q = query.toLowerCase();
+      news = news.filter((item) =>
+        item.title.toLowerCase().includes(q)
+      );
+    }
+
+    return news;
   } catch (error) {
     console.error("Gagal mengambil berita:", error);
     throw error;
