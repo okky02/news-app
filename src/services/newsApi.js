@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL:
+    import.meta.env.MODE === "development"
+      ? "/api" // pakai proxy Vite saat dev
+      : "https://berita-indo-api-next.vercel.app", // pakai URL asli saat production
 });
 
 export const getNews = async (category = "", query = "") => {
