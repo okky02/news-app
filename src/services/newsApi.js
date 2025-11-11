@@ -1,18 +1,14 @@
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "/api",
-});
-
 export const getNews = async (category = "", query = "") => {
   try {
-    let endpoint = "/cnn-news";
+    let endpoint = "https://berita-indo-api-next.vercel.app/api/cnn-news";
 
     if (category && category !== "all") {
       endpoint += `/${category}`;
     }
 
-    const response = await api.get(endpoint);
+    const response = await axios.get(endpoint);
     let news = response.data.data;
 
     // Filter by search keyword (client-side)
