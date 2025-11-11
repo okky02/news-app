@@ -6,7 +6,7 @@ export default function ScrollTopButton() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 300);
+      setIsVisible(window.scrollY > 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

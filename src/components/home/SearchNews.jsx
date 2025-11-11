@@ -30,7 +30,7 @@ export default function SearchNews({ search, setSearch }) {
           open ? "hidden" : "block"
         }  p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-md cursor-pointer`}
       >
-        <Search className="w-5 h-5 text-[var(--text-light)] dark:text-[var(--text-dark)]" />
+        <Search className="text-[var(--text-light)] dark:text-[var(--text-dark)]" size={24}/>
       </button>
 
       {/* SLIDE INPUT */}
@@ -38,7 +38,7 @@ export default function SearchNews({ search, setSearch }) {
         {open && (
           <motion.div
             initial={{ width: 0, opacity: 0 }}
-            animate={{ width: "14rem", opacity: 1 }} // 14rem ≈ w-56 (sesuaikan kalau mau)
+            animate={{ width: "14rem", opacity: 1 }} 
             exit={{ width: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
             className="flex items-center gap-2 overflow-hidden bg-[var(--card-light)] dark:bg-[var(--card-dark)]
