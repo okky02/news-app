@@ -9,7 +9,7 @@ const api = axios.create({
 
 export const getNews = async (category = "", query = "") => {
   try {
-    let endpoint = `/api/cnn-news`;
+    let endpoint = `/cnn-news`;
     const params = [];
 
     if (category) params.push(category);
@@ -26,3 +26,4 @@ export const getNews = async (category = "", query = "") => {
     throw error;
   }
 };
+
