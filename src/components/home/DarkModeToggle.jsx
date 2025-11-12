@@ -4,7 +4,6 @@ import { Moon, Sun } from "lucide-react";
 export default function DarkModeToggle() {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Sync ke HTML class
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -13,7 +12,6 @@ export default function DarkModeToggle() {
     }
   }, [darkMode]);
 
-  // Load dari localStorage / preferensi system
   useEffect(() => {
     const isDarkMode =
       localStorage.getItem("darkMode") === "true" ||

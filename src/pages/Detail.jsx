@@ -1,4 +1,3 @@
-import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -31,7 +30,6 @@ export default function Detail() {
       ? "Hiburan"
       : "Umum");
 
-  // Format tanggal agar lebih rapi
   const date = new Date(item.isoDate);
   const options = { day: "numeric", month: "long", year: "numeric" };
   const formattedDate = item.isoDate

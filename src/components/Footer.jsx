@@ -2,9 +2,7 @@ export default function Footer() {
   return (
     <footer className="mt-8 py-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border-t border-gray-200 dark:border-gray-700">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Top Section - Logo and Description */}
         <div className="flex flex-row lg:flex-row justify-between mb-8">
-          {/* Logo and Brand - Left Side */}
           <div className="flex flex-col lg:flex-row items-center lg:gap-3 lg:mb-0">
             <div className="relative">
               <img
@@ -23,7 +21,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Description and Source - Right Side */}
           <div className="max-w-md text-right md:text-right lg:text-right">
             <div className="mb-4">
               <h3 className="sm:text-sm md:text-base lg:text-lg font-bold text-gray-800 dark:text-white mb-2">
@@ -55,7 +52,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright Section */}
         <div className="pt-6 border-t border-gray-100 dark:border-gray-700">
           <div className="flex justify-center">
             <p className="text-base text-gray-600 dark:text-gray-400 font-medium">

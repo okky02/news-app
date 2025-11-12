@@ -31,9 +31,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
 
   return (
     <div className="flex flex-wrap justify-center items-center gap-2 mt-12">
-      {/* Desktop Navigation */}
       <div className="hidden sm:flex items-center gap-2">
-        {/* First Page */}
         <button
           onClick={() => onPageChange(1)}
           disabled={currentPage === 1}

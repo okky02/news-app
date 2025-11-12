@@ -7,14 +7,12 @@ export default function SearchNews({ search, setSearch }) {
   const [open, setOpen] = useState(false);
   const inputRef = useRef(null);
 
-  // auto focus saat box muncul
   useEffect(() => {
     if (open && inputRef.current) {
       inputRef.current.focus();
     }
   }, [open]);
 
-  // tutup jika user pencet ESC
   useEffect(() => {
     const handleEsc = (e) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", handleEsc);
@@ -23,7 +21,6 @@ export default function SearchNews({ search, setSearch }) {
 
   return (
     <div className="relative flex items-center">
-      {/* ICON SEARCH */}
       <button
         onClick={() => setOpen(true)}
         className={`${
@@ -33,7 +30,6 @@ export default function SearchNews({ search, setSearch }) {
         <Search className="text-[var(--text-light)] dark:text-[var(--text-dark)]" size={24}/>
       </button>
 
-      {/* SLIDE INPUT */}
       <AnimatePresence>
         {open && (
           <motion.div

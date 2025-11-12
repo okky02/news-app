@@ -40,7 +40,6 @@ export default function HeroSlider({ highlightNews }) {
               state={{ item: news }}
               className="block relative w-full h-full group"
             >
-              {/* Background Image */}
               <div className="absolute inset-0">
                 <img
                   src={
@@ -49,15 +48,11 @@ export default function HeroSlider({ highlightNews }) {
                   alt={news.title}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Gradient overlays */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
               </div>
-
-              {/* Content */}
               <div className="relative z-20 h-full flex flex-col justify-end p-6 sm:p-8 md:p-12">
                 <div className="max-w-2xl">
-                  {/* Badges */}
                   <div className="flex items-center gap-3 mb-4">
                     <span className="bg-gradient-to-r from-red-500 to-pink-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
                       🚀 BERITA TERBARU
@@ -66,22 +61,16 @@ export default function HeroSlider({ highlightNews }) {
                       {timeAgo(news.isoDate)}
                     </span>
                   </div>
-
-                  {/* Title */}
                   <h2 className="text-2xl text-gray-300 group-hover:text-white  sm:text-3xl md:text-4xl lg:text-5xl font-bold  mb-4 leading-tight drop-shadow-2xl">
                     {news.title}
                   </h2>
                 </div>
               </div>
-
-              {/* Pattern Overlay */}
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMzAgMTVMMTUgMzBMMzAgNDVMNDUgMzBMMzAgMTVaIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMC4xIiBzdHJva2Utb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] opacity-10 z-10" />
             </Link>
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* Bottom Gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none" />
     </div>
   );
